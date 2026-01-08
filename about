@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Freely Connect｜為每一次旅程而存在。提供 eSIM、SIM Card 與 Wi-Fi，讓你依旅程自在選擇最合適的連線方式。" />
+  <title>Freely Connect | 為每一次旅程而存在</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --brand-cyan: #26BEC9;
+      --brand-cyan-light: #E9F9FA;
+      --kkday-yellow: #FFD300;
+      --ink: #1A1C1D;
+      --ink-2: #444;
+      --ink-3: #666;
+      --bg: #FBFBFB;
+      --surface: #FFFFFF;
+      --border: #E6E6E6;
+      --shadow: 0 20px 40px rgba(0,0,0,.08);
+      --shadow-soft: 0 10px 20px rgba(38,190,201,0.15);
+      --focus: 0 0 0 4px rgba(38,190,201,0.25);
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header / Nav */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(251, 251, 251, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav{ display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+    .brand-group{ display:flex; flex-direction:column; text-decoration:none; min-width: 180px; }
+    .logo{ font-size: 1.05rem; font-weight: 800; letter-spacing: .12em; color: var(--ink); }
+    .kkday-tag{ font-size: 10px; letter-spacing: 2px; color: #888; margin-top: -4px; font-weight: 600; }
+    nav ul{ list-style:none; display:none; gap: 26px; align-items: center; }
+    .nav-link{ text-decoration:none; color: var(--ink); font-size: .95rem; padding: 10px 8px; border-radius: 12px; transition: .2s; }
+    .nav-link:hover{ color: var(--brand-cyan); background: rgba(38,190,201,0.08); }
+    .btn-login{ background: var(--kkday-yellow); color:#000; padding: 10px 16px; border-radius: 999px; font-size: .9rem; font-weight: 800; text-decoration:none; transition: .15s; }
+    .btn-login:hover{ transform: translateY(-1px); box-shadow: var(--shadow); }
+
+    .menu-btn{ display:inline-flex; align-items:center; justify-content:center; width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; }
+    .menu-icon span{ display:block; height:2px; background: var(--ink); margin: 3px 0; width: 18px; border-radius: 999px; }
+    .mobile-menu{ display:none; background: var(--surface); border-top: 1px solid var(--border); }
+    .mobile-menu a{ display:block; padding: 14px 24px; text-decoration:none; color: var(--ink); font-weight: 700; border-bottom: 1px solid rgba(0,0,0,0.04); }
+    .mobile-menu.open{ display:block; }
+    @media (min-width: 1024px){ nav ul{ display:flex; } .menu-btn{ display:none; } }
+
+    /* Hero */
+    .hero { padding: 56px 0 26px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; min-height: 75vh; }
+    @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 1.1fr; } }
+
+    .badge { display: inline-block; background: var(--brand-cyan-light); color: var(--brand-cyan); padding: 6px 16px; font-size: .85rem; font-weight: 800; border-radius: 999px; margin-bottom: 22px; }
+    .hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.22; margin-bottom: 18px; letter-spacing: -0.02em; }
+    .hero p { font-size: 1.12rem; color: var(--ink-2); margin-bottom: 18px; max-width: 580px; text-align: justify; }
+    .hero h3 { font-size: 1.25rem; font-weight: 900; color: var(--brand-cyan); margin-bottom: 18px; letter-spacing: 0.06em; }
+    .cta-group { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn { padding: 14px 22px; border-radius: var(--radius-md); font-weight: 800; text-decoration: none; transition: .2s; text-align: center; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; border: 1px solid transparent; }
+    .btn-primary { background: var(--brand-cyan); color: #fff; }
+    .btn-secondary { border-color: var(--border); background: #fff; color: var(--ink); }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+
+    .hero-visual { position: relative; width: 100%; height: 420px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); }
+    @media (min-width: 1024px) { .hero-visual { height: 580px; } }
+    .hero-visual img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: .95; }
+    .hero-visual .caption { position: absolute; left: 24px; bottom: 24px; background: rgba(255, 255, 255, 0.96); padding: 12px 22px; border-radius: 999px; font-size: 0.85rem; font-weight: 900; box-shadow: 0 4px 15px rgba(0,0,0,0.08); z-index: 10; letter-spacing: 0.05em; }
+
+    /* About Section */
+    .about{ padding: 40px 0; }
+    .about-card{ background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: grid; gap: 24px; }
+    @media (min-width: 900px){ .about-card{ grid-template-columns: 1.2fr 1fr; gap: 32px; } }
+    .about h2{ font-size: 1.65rem; font-weight: 900; letter-spacing: -0.01em; margin-bottom: 12px; line-height: 1.4; }
+    .about p{ color: var(--ink-2); font-size: 1.05rem; margin-bottom: 16px; }
+    .pill-row{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .pill{ background: rgba(38,190,201,0.08); color: var(--brand-cyan); border: 1px solid rgba(38,190,201,0.18); padding: 8px 14px; border-radius: 999px; font-weight: 900; font-size: .85rem; }
+    
+    .about-side{ border-top: 1px solid rgba(0,0,0,0.06); padding-top: 24px; }
+    @media (min-width: 900px){ .about-side{ border-top: 0; border-left: 1px solid rgba(0,0,0,0.06); padding-left: 28px; padding-top: 0; } }
+    .about-side h3{ color: var(--ink); font-size: 1.1rem; font-weight: 900; margin-bottom: 16px; }
+    .scenario-list{ list-style: none; display: grid; gap: 16px; }
+    .scenario-item b { color: var(--brand-cyan); font-weight: 900; }
+    .scenario-item span { display: block; font-size: 0.95rem; color: var(--ink-3); margin-top: 2px; }
+
+    /* Products Section */
+    .products { padding: 60px 0 86px; }
+    .products h2 { text-align: center; font-size: 2rem; font-weight: 900; margin-bottom: 42px; letter-spacing: -0.01em; }
+    .product-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    @media (min-width: 768px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      min-height: 240px;
+    }
+    .product-card:hover { transform: translateY(-6px); border-color: rgba(38,190,201,.4); box-shadow: var(--shadow); }
+    .product-card h3 { font-size: 1.35rem; font-weight: 900; margin-bottom: 12px; }
+    .product-card p { color: var(--ink-2); font-size: 1rem; margin-bottom: 22px; }
+    .explore-link { color: var(--brand-cyan); font-weight: 900; text-decoration: none; width: fit-content; padding: 10px 0; }
+
+    /* Footer */
+    footer{ background: var(--ink); color: rgba(255,255,255,0.75); padding: 44px 0; }
+    .footer-grid{ display:grid; gap: 16px; }
+    @media (min-width: 860px){ .footer-grid{ grid-template-columns: 1.2fr 1fr; } }
+    .footer-brand .name{ font-weight: 900; letter-spacing: .12em; color: #fff; margin-bottom: 4px; }
+    .footer-brand .line{ color: rgba(255,255,255,0.9); font-weight: 800; font-size: 0.95rem; }
+    .footer-links{ display:flex; gap: 14px; flex-wrap: wrap; }
+    @media (min-width: 860px){ .footer-links{ justify-content: flex-end; } }
+    .footer-links a{ color: rgba(255,255,255,0.78); text-decoration:none; font-weight: 800; padding: 8px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); font-size: 0.9rem; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a href="#main" class="brand-group">
+          <span class="logo">FREELY CONNECT</span>
+          <span class="kkday-tag">BY KKday</span>
+        </a>
+        
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#solutions">連線方案</a>
+      <a href="#about">關於我們</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="badge">最懂旅行的上網夥伴</div>
+            <h1>為每一次旅程而存在</h1>
+            <p>旅程的模樣不只一種，上網也是。無論是獨自出發的探險，或是與旅伴共享的風景，我們不推銷單一產品，而是將選擇權交還給你。KKday 以 Freely Connect 的概念，提供多種 eSIM、SIM Card 與 Wi-Fi 上網方案，讓最懂行程的我們，將自由選擇最合適上網方案的權利交給你。</p>
+            <h3>連線的方式不應只有一種 —</h3>
+            <div class="cta-group">
+              <a href="#about" class="btn btn-primary">了解為什麼</a>
+              <a href="#solutions" class="btn btn-secondary">探索上網方案</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=2000" alt="Travel" />
+            <div class="caption">支援 VPN ｜ ChatGPT ｜ 無限流量</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-card">
+          <div>
+            <h2>上網習慣Ｘ旅遊情境＝Ｎ種方案</h2>
+            <p>KKday 深入洞察各國旅客的連線習慣，不論是講究「無限流量／保證不降速」的極致體驗、「內建 VPN、ChatGPT」的高效生產力，或是追求「絕不浪費一分錢」的最高 CP 值，KKday 拒絕單一套路，與各目的地的主流電信公司、虛擬運營商及網路供應商合作，為各種旅遊情境準備適合的上網方案。</p>
+            <div class="pill-row">
+              <span class="pill">極致上網體驗</span>
+              <span class="pill">高效生產力</span>
+              <span class="pill">最高
+C/P值</span>
+            </div>
+          </div>
+
+          <div class="about-side">
+            <h3>適合這樣的旅程</h3>
+            <ul class="scenario-list">
+              <li class="scenario-item">
+                <b>獨旅自我探險</b> 
+                <span>需要彈性、即時、安心，追求極致輕便與無縫連結。</span>
+              </li>
+              <li class="scenario-item">
+                <b>朋友／情侶出遊</b> 
+                <span>需要無限流量與即時通訊，共同捕捉精彩瞬間的悸動。</span>
+              </li>
+              <li class="scenario-item">
+                <b>家人／親子旅行</b> 
+                <span>需要穩定與多裝置共享，守護全家人安心的連線品質。</span>
+              </li>
+              <li class="scenario-item">
+                <b>公司商務出差</b> 
+                <span>需要 VPN 內建與 ChatGPT 支援，確保海外工作效率不中斷。</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions" class="products" aria-label="Solutions">
+      <div class="container">
+        <h2>尊重你的選擇，成就你的旅程</h2>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div>
+              <h3>eSIM</h3>
+              <p>即時啟動、免換卡，適合說走就走與需要彈性切換的旅程。</p>
+            </div>
+            <a href="#" class="explore-link" aria-label="探索 eSIM 方案">探索方案 →</a>
+          </article>
+
+          <article class="product-card">
+            <div>
+              <h3>SIM Card</h3>
+              <p>相容性高、即插即用，適合偏好傳統方式與長時間穩定使用。</p>
+            </div>
+            <a href="#" class="explore-link" aria-label="探索 SIM Card 方案">探索方案 →</a>
+          </article>
+
+          <article class="product-card">
+            <div>
+              <h3>Wi-Fi</h3>
+              <p>多人共享、多裝置連線，適合家庭、朋友、親子或商務團體旅伴。</p>
+            </div>
+            <a href="#" class="explore-link" aria-label="探索 Wi-Fi 方案">探索方案 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="name">FREELY CONNECT</div>
+          <div class="line">為每一次旅程而存在</div>
+          <div class="copyright">© 2025 Freely Connect by KKday. All rights reserved.</div>
+        </div>
+       
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const btn = document.getElementById('menuBtn');
+      const menu = document.getElementById('mobileMenu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', () => menu.classList.toggle('open'));
+    })();
+  </script>
+</body>
+</html>
